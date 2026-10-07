@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\adminController;
+use App\Http\Controllers\backend\bannerController;
 use App\Http\Controllers\frontend\loginController;
 use App\Http\Controllers\frontend\registerController;
 use Illuminate\Support\Facades\Route;
@@ -23,3 +24,9 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('login', [loginController::class, 'login'])->name('logins');
     Route::post('login', [loginController::class, 'loginpage'])->name('login');
 });
+
+
+Route::get('banner', [bannerController::class, 'banners'])->name('banner');
+Route::post('banner', [bannerController::class, 'bannerpage'])->name('banner.store');
+
+Route::get('bannerlist', [bannerController::class, 'listpage'])->name('listbanner');

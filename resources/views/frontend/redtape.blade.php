@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-<link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-   
+
 </head>
 
 <body>
@@ -177,10 +177,19 @@
 
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            {{-- <div class="carousel-item active">
                 <img src="{{ asset('frontend/image/img3.webp') }}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
+            </div> --}}
+            @foreach ($banners as $banner)
+                <tr>
+                    <td>{{ $banner->id }}</td>
+                    <td>
+                        <img src="{{ asset($banner->image) }}" alt="Banner Image" width="100">
+                    </td>
+                </tr>
+            @endforeach
+
+            {{-- <div class="carousel-item">
                 <img src="{{ asset('frontend/image/img4.webp') }}" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
@@ -188,7 +197,7 @@
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('frontend/image/img6.webp') }}" class="d-block w-100" alt="...">
-            </div>
+            </div> --}}
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
@@ -458,39 +467,39 @@
 
                 <div class="carousel-item active">
                     <div class="row g-2">
-                        <div class="col-3"><img src="{{ asset('frontend/image/img16.webp') }}" class="d-block w-100"
-                                alt="Slide 1"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img15.webp') }}" class="d-block w-100"
-                                alt="Slide 2"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img17.webp') }}" class="d-block w-100"
-                                alt="Slide 3"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img18.webp') }}" class="d-block w-100"
-                                alt="Slide 4"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img16.webp') }}"
+                                class="d-block w-100" alt="Slide 1"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img15.webp') }}"
+                                class="d-block w-100" alt="Slide 2"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img17.webp') }}"
+                                class="d-block w-100" alt="Slide 3"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img18.webp') }}"
+                                class="d-block w-100" alt="Slide 4"></div>
                     </div>
                 </div>
 
                 <div class="carousel-item">
                     <div class="row g-2">
-                        <div class="col-3"><img src="{{ asset('frontend/image/img16.webp') }}" class="d-block w-100"
-                                alt="Slide 5"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img15.webp') }}" class="d-block w-100"
-                                alt="Slide 6"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img17.webp') }}" class="d-block w-100"
-                                alt="Slide 7"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img18.webp') }}" class="d-block w-100"
-                                alt="Slide 8"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img16.webp') }}"
+                                class="d-block w-100" alt="Slide 5"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img15.webp') }}"
+                                class="d-block w-100" alt="Slide 6"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img17.webp') }}"
+                                class="d-block w-100" alt="Slide 7"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img18.webp') }}"
+                                class="d-block w-100" alt="Slide 8"></div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="row g-2">
-                        <div class="col-3"><img src="{{ asset('frontend/image/img16.webp') }}" class="d-block w-100"
-                                alt="Slide 5"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img15.webp') }}" class="d-block w-100"
-                                alt="Slide 6"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img17.webp') }}" class="d-block w-100"
-                                alt="Slide 7"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img18.webp') }}" class="d-block w-100"
-                                alt="Slide 8"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img16.webp') }}"
+                                class="d-block w-100" alt="Slide 5"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img15.webp') }}"
+                                class="d-block w-100" alt="Slide 6"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img17.webp') }}"
+                                class="d-block w-100" alt="Slide 7"></div>
+                        <div class="col-3"><img src="{{ asset('frontend/image/img18.webp') }}"
+                                class="d-block w-100" alt="Slide 8"></div>
                     </div>
                 </div>
             </div>
