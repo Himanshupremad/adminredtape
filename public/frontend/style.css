@@ -1,0 +1,136 @@
+
+    
+        .head {
+            background-color: #c41d31;
+
+        }
+
+        .topic a {
+            color: #ffff;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .logimg img {
+            width: 137px;
+            height: 38px;
+        }
+
+        .forms input {
+            width: 260px;
+            height: 45px;
+            border-radius: 23px;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 250px;
+        }
+
+        .cards img {
+            padding: 16px;
+            border-radius: 26px;
+        }
+
+        .card {
+            /* height: 405px; */
+            height: 96% !important;
+            border-radius: 15px;
+        }
+
+        .btns {
+            height: 35px;
+            border-radius: 18px;
+        }
+
+        .img12 img {
+            max-width: 100%;
+        }
+
+        .carousel-item {
+            transition: transform 4s ease-in-out !important;
+
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .icons {
+            gap: 30px;
+        }
+
+        .icons span {
+
+            border: 1px solid rgb(193, 190, 190);
+            width: 40px;
+            text-align: center;
+            height: 40px;
+            padding-top: 3px;
+            border-radius: 20px;
+            font-size: 20px;
+        }
+
+        .icons span:hover {
+            background-color: black;
+            color: #ffff;
+
+        }
+
+        .tootrr h5 {
+            font-size: 18px;
+        }
+
+        .tootrr p {
+            font-size: 15px;
+        }
+
+        .card-b p {
+            background-color: rgb(175, 16, 16);
+            color: #ffff;
+            font-size: 12px;
+            border-radius: 4px;
+            width: 60px;
+            height: 20px;
+            text-align: center;
+        }
+
+        .card-b h6 {
+            font-size: 13px;
+            color: black;
+            font-weight: 600;
+        }
+
+        .card-b a {
+            text-decoration: none;
+        }
+
+        .card-cntt a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 100%;
+            }
+        }
+
+          @media screen and (max-width: 320px) {
+            body {
+            width: 100%;
+            width: 155%;
+            }
+        }
+
+            @media screen and (max-width: 320px) {
+            carousel {
+                width: 155%;
+            
+            }
+        }
+
+      
+    
+  
