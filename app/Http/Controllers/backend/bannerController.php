@@ -11,7 +11,7 @@ use Laravel\Mcp\Request as McpRequest;
 class bannerController extends Controller
 {
     //
-    function banners()
+    function banners(Request $request)
     {
         return view('backend.banner.creatBanner');
     }

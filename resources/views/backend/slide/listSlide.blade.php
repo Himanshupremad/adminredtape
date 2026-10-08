@@ -7,39 +7,35 @@
             <div class="content-header row">
             </div>
             <div class="content-body">
-                <section id="basic-vertical-layouts">
+               <section id="basic-vertical-layouts">
                     <div class="row">
 
                         <div class=" col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Banner List</h4>
+                                    <h4 class="card-title">Slide  List</h4>
                                 </div>
                                 @session('success')
-                                    <div class="alert alert-success">
-                                        {{ $value }}
-                                    </div>
+                                <div class="alert alert-success">
+                                     {{ $value }}
+                                </div>
                                 @endsession
                                 <div class="card-body">
                                     <table class="table">
-                                        <thead class="table-dark">
+                                        <thead class="table-dark"> 
                                             <tr>
                                                 <th>#</th>
-                                                <th>Image</th>
-
+                                                <th>Image</th>  
+                                               
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($banners as $banner)
-                                                <tr>
-                                                    <td>{{ $banner->id }}</td>
-                                                    <td>
-                                                        <img src="{{ asset($banner->image) }}" alt="Banner Image"
-                                                            width="50px">
-                                                    </td>
-                                                </tr>
+                                            @foreach ($sliders as $slider)
+                                            <tr>
+                                                <th>{{ $slider->id }}</th>
+                                                <th><img src="{{ asset($slider->image) }}" alt="" width="50px"></th>
+                                            </tr>
                                             @endforeach
-
                                         </tbody>
                                     </table>
                                 </div>

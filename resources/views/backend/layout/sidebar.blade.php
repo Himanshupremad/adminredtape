@@ -65,6 +65,16 @@
                         </li>
                     </ul>
                 </li>
+
+                
+                 <li class=" nav-item"><a class="d-flex align-items-center" href="#">Slides</a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="{{ route('slidelist') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Roles">List Slides</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="{{ route('slidebanner') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Permission">Create Slide</span></a>
+                        </li>
+                    </ul>
+                </li>
               
             </ul>
         </div>

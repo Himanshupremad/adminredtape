@@ -3,11 +3,13 @@
 use App\Http\Controllers\backend\adminController;
 use App\Http\Controllers\backend\bannerController;
 use App\Http\Controllers\backend\categoryController;
+use App\Http\Controllers\backend\slideController;
 use App\Http\Controllers\backend\trendController;
 use App\Http\Controllers\frontend\loginController;
 use App\Http\Controllers\frontend\registerController;
 use App\Models\banner;
 use App\Models\category;
+use App\Models\slidebanner;
 use App\Models\trending;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +17,8 @@ Route::get('/', function () {
     $banners = banner::all();
     $categorys = category::all();
     $trends = trending::all();
-    return view('frontend.redtape', compact('banners', 'categorys', 'trends'));
+    $sliders = slidebanner::all();
+    return view('frontend.redtape', compact('banners', 'categorys', 'trends', 'sliders'));
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -47,3 +50,7 @@ route::get('categorylist', [categoryController::class, 'catlist'])->name('listca
 route::get('trendings', [trendController::class, 'trendings'])->name('trending');
 route::post('trending', [trendController::class, 'trendingpage'])->name('trending.store');
 route::get('trendinglist', [trendController::class, 'trendlist'])->name('trendlist');
+
+Route::get('slidebanner', [slideController::class, 'slidebanner'])->name('slidebanner');
+Route::post('slidebanner', [slideController::class, 'slidepage'])->name('slide.store');
+Route::get('slidebannerlist', [slideController::class, 'slidelist'])->name('slidelist');

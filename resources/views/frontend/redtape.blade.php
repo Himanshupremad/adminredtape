@@ -316,50 +316,19 @@
     <div class="container-fluid">
         <div id="pureAutoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
             <div class="carousel-inner">
+                @foreach ($sliders as $key => $slider)
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                        <div class="row g-2">
 
-                <div class="carousel-item active">
-                    <div class="row g-2">
-                        <div class="col-3"><img src="{{ asset('frontend/image/img16.webp') }}"
-                                class="d-block w-100" alt="Slide 1"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img15.webp') }}"
-                                class="d-block w-100" alt="Slide 2"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img17.webp') }}"
-                                class="d-block w-100" alt="Slide 3"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img18.webp') }}"
-                                class="d-block w-100" alt="Slide 4"></div>
-                    </div>
-                </div>
+                            <div class="col-3"><img src="{{ asset($slider->image) }}" class="d-block w-100" h-100 alt="iamge"></div>
 
-                <div class="carousel-item">
-                    <div class="row g-2">
-                        <div class="col-3"><img src="{{ asset('frontend/image/img16.webp') }}"
-                                class="d-block w-100" alt="Slide 5"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img15.webp') }}"
-                                class="d-block w-100" alt="Slide 6"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img17.webp') }}"
-                                class="d-block w-100" alt="Slide 7"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img18.webp') }}"
-                                class="d-block w-100" alt="Slide 8"></div>
+                           
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row g-2">
-                        <div class="col-3"><img src="{{ asset('frontend/image/img16.webp') }}"
-                                class="d-block w-100" alt="Slide 5"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img15.webp') }}"
-                                class="d-block w-100" alt="Slide 6"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img17.webp') }}"
-                                class="d-block w-100" alt="Slide 7"></div>
-                        <div class="col-3"><img src="{{ asset('frontend/image/img18.webp') }}"
-                                class="d-block w-100" alt="Slide 8"></div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
-
-    </div>
-
     <div class="video-container my-4">
         <video width="100%" height="auto" controls autoplay muted loop>
             <source src="{{ asset('frontend/video/img19.mp4') }}" type="video/mp4">
