@@ -47,6 +47,24 @@
                         </li>
                     </ul>
                 </li>
+
+                  <li class=" nav-item"><a class="d-flex align-items-center" href="#">Categories</a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="{{ route('listcat') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Roles">List Categories</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="{{ route('category') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Permission">Create Category</span></a>
+                        </li>
+                    </ul>
+                </li>
+
+                 <li class=" nav-item"><a class="d-flex align-items-center" href="#">Trends</a>
+                    <ul class="menu-content">
+                        <li><a class="d-flex align-items-center" href="{{ route('trendlist') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Roles">List Trends</span></a>
+                        </li>
+                        <li><a class="d-flex align-items-center" href="{{ route('trending') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Permission">Create Trend</span></a>
+                        </li>
+                    </ul>
+                </li>
               
             </ul>
         </div>

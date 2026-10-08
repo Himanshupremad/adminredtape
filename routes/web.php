@@ -2,12 +2,20 @@
 
 use App\Http\Controllers\backend\adminController;
 use App\Http\Controllers\backend\bannerController;
+use App\Http\Controllers\backend\categoryController;
+use App\Http\Controllers\backend\trendController;
 use App\Http\Controllers\frontend\loginController;
 use App\Http\Controllers\frontend\registerController;
+use App\Models\banner;
+use App\Models\category;
+use App\Models\trending;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('frontend.redtape');
+    $banners = banner::all();
+    $categorys = category::all();
+    $trends = trending::all();
+    return view('frontend.redtape', compact('banners', 'categorys', 'trends'));
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -28,5 +36,14 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::get('banner', [bannerController::class, 'banners'])->name('banner');
 Route::post('banner', [bannerController::class, 'bannerpage'])->name('banner.store');
-
 Route::get('bannerlist', [bannerController::class, 'listpage'])->name('listbanner');
+
+
+route::get('category', [categoryController::class, 'categorys'])->name('category');
+route::post('category', [categoryController::class, 'categorypage'])->name('category.store');
+route::get('categorylist', [categoryController::class, 'catlist'])->name('listcat');
+
+
+route::get('trendings', [trendController::class, 'trendings'])->name('trending');
+route::post('trending', [trendController::class, 'trendingpage'])->name('trending.store');
+route::get('trendinglist', [trendController::class, 'trendlist'])->name('trendlist');

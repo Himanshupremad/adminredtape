@@ -177,28 +177,14 @@
 
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            {{-- <div class="carousel-item active">
-                <img src="{{ asset('frontend/image/img3.webp') }}" class="d-block w-100" alt="...">
-            </div> --}}
-            @foreach ($banners as $banner)
-                <tr>
-                    <td>{{ $banner->id }}</td>
-                    <td>
-                        <img src="{{ asset($banner->image) }}" alt="Banner Image" width="100">
-                    </td>
-                </tr>
+            @foreach ($banners as $key => $banner)
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                    <img src="{{ asset($banner->image) }}" class="d-block w-100" alt="Banner Image">
+                </div>
             @endforeach
-
-            {{-- <div class="carousel-item">
-                <img src="{{ asset('frontend/image/img4.webp') }}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('frontend/image/img5.jpg') }}" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('frontend/image/img6.webp') }}" class="d-block w-100" alt="...">
-            </div> --}}
         </div>
+
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -210,6 +196,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
     <div class="banner my-4">
 
         <img src="{{ asset('frontend/image/img7.webp') }}" alt="">
@@ -219,71 +206,24 @@
 
     <div class="container">
         <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card cards h-100">
-                    <img src="{{ asset('frontend/image/img8.webp') }}" class="card-img-top" alt="...">
-                    <div class="card-body card-cntt">
-                        <a href="">
-                            <div class=" d-flex justify-content-between">
-                                <p>Footwear</p>
-                                <button type="button" class="btn btn-outline-dark  btns"><i
-                                        class="bi bi-chevron-right"></i></button>
-                            </div>
+            @foreach ($categorys as $category)
+                <div class="col">
+                    <div class="card cards h-100 ">
+                        <img src="{{ asset($category->image) }}" class="card-img-top" alt="...">
+                        <div class="card-body card-cntt">
+                            <a href="">
+                                <div class=" d-flex justify-content-between">
+                                    <p>{{ $category->content }}</p>
+                                    <button type="button" class="btn btn-outline-dark  btns"><i
+                                            class="bi bi-chevron-right"></i></button>
+                                </div>
 
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <div class="card cards h-100">
-                    <img src="{{ asset('frontend/image/img9.webp') }}" class="card-img-top" alt="...">
-                    <div class="card-body card-cntt">
+            @endforeach
 
-                        <a href="">
-                            <div class=" d-flex justify-content-between">
-                                <p>Clothing</p>
-                                <button type="button" class="btn btns btn-outline-dark"><i
-                                        class="bi bi-chevron-right"></i></button>
-                            </div>
-
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card cards h-100">
-                    <img src="{{ asset('frontend/image/img11.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body card-cntt">
-
-                        <a href="">
-                            <div class=" d-flex justify-content-between">
-                                <p>New Arrival</p>
-                                <button type="button" class="btn btns btn-outline-dark"><i
-                                        class="bi bi-chevron-right"></i></button>
-                            </div>
-
-                        </a>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card cards h-100">
-                    <img src="{{ asset('frontend/image/img10.webp') }}" class="card-img-top" alt="...">
-                    <div class="card-body card-cntt">
-
-                        <a href="">
-                            <div class=" d-flex justify-content-between">
-                                <p>Accesories</p>
-                                <button type="button" class="btn btns btn-outline-dark"><i
-                                        class="bi bi-chevron-right"></i></button>
-                            </div>
-
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>
@@ -336,125 +276,37 @@
             </div>
 
             <div class="row row-cols-1 row-cols-md-6 g-4">
-                <div class="col">
-                    <div class=" cards h-100">
-                        <img class="interactive-image" src="{{ asset('frontend/image/img24.webp') }}"
-                            data-default="{{ asset('frontend/image/img25.webp') }}"
-                            data-hover="{{ asset('frontend/image/img24.webp') }}" alt="Hover Effect" width="250"
-                            style="cursor: pointer;">
+                @foreach ($trends as $trend)
+                    <div class="col">
+                        <div class="cards h-100">
 
-                        <div class="card-body card-b">
-                            <a href="">
-                                <h6>Low Cut Sports Shoes for Men <br>in White | Sports Shoes</h6>
-                            </a>
-                            <div class="d-flex" style="gap: 13px; font-size: 16px;">
-                                <p>Save 84%</p>
-                                <span style="color: #c41d31; font-size: 15px;">₹ 1,237.00</span>
+                            <div class="main-img-container text-center">
+                                <img class="interactive-image" src="{{ asset($trend->image) }}"
+                                    data-default="{{ asset($trend->image) }}"
+                                    data-hover="{{ asset($trend->image1) }}" alt="Main Product Image" width="250"
+                                    style="cursor: pointer; transition: all 0.3s ease;">
                             </div>
-                            <span class="text-decoration-line-through" style="background-color: rgb(217, 217, 217);">₹
-                                7,499.00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class=" cards h-100">
-                        <img class="interactive-image" src="{{ asset('frontend/image/img26.webp') }}"
-                            data-default="{{ asset('frontend/image/img27.webp') }}"
-                            data-hover="{{ asset('frontend/image/img26.webp') }}" alt="Hover Effect" width="250"
-                            style="cursor: pointer;">
 
-                        <div class="card-body card-b">
-                            <a href="">
-                                <h6>Men's Light Blue Sports Shoes | <br> For Everyday Comfort</h6>
-                            </a>
-                            <div class="d-flex" style="gap: 13px; font-size: 16px;">
-                                <p>Save 85%</p>
-                                <span style="color: #c41d31; font-size: 15px;">₹ 1,224.00</span>
-                            </div>
-                            <span class="text-decoration-line-through" style="background-color: rgb(217, 217, 217);">₹
-                                7,899.00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class=" cards h-100">
-                        <img class="interactive-image" src="{{ asset('frontend/image/img28.webp') }}"
-                            data-default="{{ asset('frontend/image/img19.webp') }}"
-                            data-hover="{{ asset('frontend/image/img28.webp') }}" alt="Hover Effect" width="250"
-                            style="cursor: pointer;">
-                        <div class="card-body card-b">
-                            <a href="">
-                                <h6>Men's Black and White Walking <br> Slip-On Shoes | Mesh Walking Shoes</h6>
-                            </a>
-                            <div class="d-flex" style="gap: 13px; font-size: 16px;">
-                                <p>Save 84%</p>
-                                <span style="color: #c41d31; font-size: 15px;">₹ 1,039.00</span>
-                            </div>
-                            <span class="text-decoration-line-through" style="background-color: rgb(217, 217, 217);">₹
-                                6,299.00</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class=" cards h-100">
-                        <img class="interactive-image" src="{{ asset('frontend/image/img26.webp') }}"
-                            data-default="{{ asset('frontend/image/img27.webp') }}"
-                            data-hover="{{ asset('frontend/image/img26.webp') }}" alt="Hover Effect" width="250"
-                            style="cursor: pointer;">
-                        <div class="card-body card-b">
-                            <a href="">
-                                <h6>Sports Shoes for Men in Blue <br> | Athleisure Shoes</h6>
-                            </a>
-                            <div class="d-flex" style="gap: 13px; font-size: 16px;">
-                                <p>Save 84%</p>
-                                <span style="color: #c41d31; font-size: 15px;">₹ 1,270.00</span>
-                            </div>
-                            <span class="text-decoration-line-through" style="background-color: rgb(217, 217, 217);">₹
-                                7,699.00</span>
-                        </div>
-                    </div>
-                </div>
+                            <div class="card-body card-b my-0">
+                                <a href="">
+                                    <h6>{{ $trend->content }}</h6>
+                                </a>
+                                <div class="d-flex" style="gap: 13px; font-size: 16px;">
+                                    <p>Save 85%</p>
+                                    <span style="color: #c41d31; font-size: 15px;">
+                                        ₹ {{ number_format((float) ($trend->price ?? 0), 2) }}
+                                    </span>
 
-                <div class="col">
-                    <div class=" cards h-100">
-                        <img class="interactive-image" src="{{ asset('frontend/image/img33.webp') }}"
-                            data-default="{{ asset('frontend/image/img34.webp') }}"
-                            data-hover="{{ asset('frontend/image/img33.webp') }}" alt="Hover Effect" width="250"
-                            style="cursor: pointer;">
-                        <div class="card-body card-b">
-                            <a href="">
-                                <h6>Drift+ Sports Shoes for Men for <br> High-Comfort in Black | Low-Cut Athleisure
-                                    Sports Shoes.</h6>
-                            </a>
-                            <div class="d-flex" style="gap: 13px; font-size: 16px;">
-                                <p>Save 84%</p>
-                                <span style="color: #c41d31; font-size: 15px;">₹ 1,424.00</span>
+                                </div>
+                                <span class="text-decoration-line-through"
+                                    style="background-color: rgb(217, 217, 217);">₹ 7,899.00</span>
                             </div>
-                            <span class="text-decoration-line-through" style="background-color: rgb(217, 217, 217);">₹
-                                8,899.00</span>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col">
-                    <div class=" cards h-100">
-                        <img class="interactive-image" src="{{ asset('frontend/image/img31.webp') }}"
-                            data-default="{{ asset('frontend/image/img32.webp') }}"
-                            data-hover="{{ asset('frontend/image/img31.webp') }}" alt="Hover Effect" width="250"
-                            style="cursor: pointer;">
-                        <div class="card-body card-b">
-                            <a href="">
-                                <h6>Sports Shoes for Men in White <br>Sea Green | Athleisure Shoes</h6>
-                            </a>
-                            <div class="d-flex" style="gap: 13px; font-size: 16px;">
-                                <p>Save 84%</p>
-                                <span style="color: #c41d31; font-size: 15px;">₹ 1,424.00</span>
-                            </div>
-                            <span class="text-decoration-line-through" style="background-color: rgb(217, 217, 217);">₹
-                                8,899.00</span>
                         </div>
                     </div>
-                </div>
+                @endforeach
+
+
             </div>
         </div>
 

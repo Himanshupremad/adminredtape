@@ -22,47 +22,41 @@
                     <div class="card-body">
                         <form action="{{ route('register') }}" method="POST">
                             @csrf
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Name</label>
-                                    <input type="text" class="form-control" name="name"
-                                        value="{{ old('name') }}">
-                                    <span class = " alert-danger">
-                                        @error('name')
-                                            <strong>{{ $message }}</strong>
-                                        @enderror
-                                    </span>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Name</label>
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                <span class = " alert-danger">
+                                    @error('name')
+                                        <strong>{{ $message }}</strong>
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <span class = " alert-danger">
+                                    @error('email')
+                                        <strong>{{ $message }}</strong>
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password"
+                                    value="{{ old('password') }}">
+                                <span class = "alert-danger">
+                                    @error('password')
+                                        <strong>{{ $message }}</strong>
+                                    @enderror
+                                </span>
+                            </div>
 
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                                    <input type="email" class="form-control" name="email"
-                                        value="{{ old('email') }}">
-                                    <span class = " alert-danger">
-                                        @error('email')
-                                            <strong>{{ $message }}</strong>
-                                        @enderror
-                                    </span>
-
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="password"
-                                        value="{{ old('password') }}">
-                                    <span class = "alert-danger">
-                                        @error('password')
-                                            <strong>{{ $message }}</strong>
-                                        @enderror
-                                    </span>
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>
