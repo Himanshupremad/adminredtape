@@ -26,7 +26,8 @@
     <div class="container-fluid p-0  ">
         <nav class="navbar sticky-top  head ">
             <div class="container-fluid topic">
-                <a class="navbar-brand ms-5 ps-5" href="#">Store Locator Help</a>
+                <a class="navbar-brand ms-5 ps-5" href="#">Store Locator  <span class="ms-4">Help</span></a>
+               
             </div>
         </nav>
 
