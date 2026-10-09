@@ -5,12 +5,14 @@ use App\Http\Controllers\backend\bannerController;
 use App\Http\Controllers\backend\categoryController;
 use App\Http\Controllers\backend\slideController;
 use App\Http\Controllers\backend\trendController;
+use App\Http\Controllers\backend\videoController;
 use App\Http\Controllers\frontend\loginController;
 use App\Http\Controllers\frontend\registerController;
 use App\Models\banner;
 use App\Models\category;
 use App\Models\slidebanner;
 use App\Models\trending;
+use App\Models\video;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,7 +20,8 @@ Route::get('/', function () {
     $categorys = category::all();
     $trends = trending::all();
     $sliders = slidebanner::all();
-    return view('frontend.redtape', compact('banners', 'categorys', 'trends', 'sliders'));
+    $shows = video::all();
+    return view('frontend.redtape', compact('banners', 'categorys', 'trends', 'sliders', 'shows'));
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -54,3 +57,10 @@ route::get('trendinglist', [trendController::class, 'trendlist'])->name('trendli
 Route::get('slidebanner', [slideController::class, 'slidebanner'])->name('slidebanner');
 Route::post('slidebanner', [slideController::class, 'slidepage'])->name('slide.store');
 Route::get('slidebannerlist', [slideController::class, 'slidelist'])->name('slidelist');
+
+
+
+
+Route::get('video', [videoController::class, 'videos'])->name('vdcreate');
+Route::post('video', [videoController::class, 'videopage'])->name('video.store');
+Route::get('videolist', [videoController::class, 'videolist'])->name('vdlist');

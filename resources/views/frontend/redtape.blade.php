@@ -13,10 +13,16 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous">
+    </script>
 
 </head>
 
 <body>
+    <div class="navheader">
     <div class="container-fluid p-0  ">
         <nav class="navbar sticky-top  head ">
             <div class="container-fluid topic">
@@ -24,14 +30,17 @@
             </div>
         </nav>
 
-        <nav class="navbar navbar-light bg-light ">
+          <nav class="navbar navbar-light bg-light navhdr">
             <div class="container">
                 <div class="mx-auto me-5 logimg">
                     <img src="{{ asset('frontend/image/img1.webp') }}" alt="">
                 </div>
                 <form class="d-flex justify-content-between forms">
-                    <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search">
-
+                    <div class="input-group me-4">
+                        <input type="text" class="form-control" placeholder="What are you looking for?"
+                            aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2" style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;"><i class="bi bi-search"></i></span>
+                    </div>
                     <div class="me-5 fs-4">
                         <i class="bi bi-person"></i>
                     </div>
@@ -44,6 +53,7 @@
                 </form>
             </div>
         </nav>
+      </div>
 
         <div class="main " style=" display: flex; justify-content: center; ">
             <div class="btn-group" style="width: 0 auto; width: 100%; ">
@@ -159,8 +169,8 @@
 
 
 
-                <span class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <span class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
                     Ozark
                 </span>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -320,9 +330,19 @@
                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                         <div class="row g-2">
 
-                            <div class="col-3"><img src="{{ asset($slider->image) }}" class="d-block w-100" h-100 alt="iamge"></div>
+                            <div class="col-3"><img src="{{ asset($slider->image) }}" class="d-block w-100" h-100
+                                    alt="iamge"></div>
 
-                           
+                            <div class="col-3"><img src="{{ asset($slider->image) }}" class="d-block w-100" h-100
+                                    alt="iamge"></div>
+
+                            <div class="col-3"><img src="{{ asset($slider->image) }}" class="d-block w-100" h-100
+                                    alt="iamge"></div>
+
+
+                            <div class="col-3"><img src="{{ asset($slider->image) }}" class="d-block w-100" h-100
+                                    alt="iamge"></div>
+
                         </div>
                     </div>
                 @endforeach
@@ -330,10 +350,15 @@
         </div>
     </div>
     <div class="video-container my-4">
-        <video width="100%" height="auto" controls autoplay muted loop>
-            <source src="{{ asset('frontend/video/img19.mp4') }}" type="video/mp4">
 
-        </video>
+        @foreach ($shows as $show)
+            <tr>
+                <th>{{ $show->id }}</th>
+                <video width="100%" height="auto" controls autoplay muted loop>
+                    <source src="{{ asset($show->video) }}" type="video/mp4">
+                </video>
+            </tr>
+        @endforeach
     </div>
 
 
