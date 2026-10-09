@@ -49,80 +49,151 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a class="d-flex align-items-center" href="{{ route('admin') }}"><i
-                        data-feather="home"></i><span class="menu-title text-truncate"
-                        data-i18n="Dashboards">Dashboards</span><span
-                        class="badge badge-light-warning rounded-pill ms-auto me-1"></span></a>
 
+            <li class="nav-item {{ request()->routeIs('admin') ? 'active' : '' }}">
+                <a class="d-flex align-items-center" href="{{ route('admin') }}">
+                    <i data-feather="home"></i>
+                    <span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span>
+                    <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
+                </a>
             </li>
 
 
-
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">Banners</a>
+            <li class="nav-item {{ request()->routeIs('listbanner', 'banner') ? 'sidebar-group-active open' : '' }}">
+                <a class="d-flex align-items-center" href="#"
+                    style="{{ request()->routeIs('listbanner', 'banner') ? 'background-color: #e4e4e4 !important; color: #000 !important; border-radius: 4px;' : '' }}">
+                    <i data-feather="image"></i>
+                    <span class="menu-title text-truncate" data-i18n="Banners">Banner</span>
+                </a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="{{ route('listbanner') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Roles">List
-                                Banners</span></a>
+                    <li class="{{ request()->routeIs('listbanner') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ route('listbanner') }}"
+                            style="{{ request()->routeIs('listbanner') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}">
+                            <!-- Yahan mistake fix kar di gayi hai -->
+                            <i data-feather="circle"
+                                style="{{ request()->routeIs('listbanner') ? 'color: #fff !important;' : '' }}"></i>
+                            <span class="menu-item text-truncate" data-i18n="List Banners">List Banners</span>
+                        </a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="{{ route('banner') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Permission">Create Banner</span></a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">Categories</a>
-                <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="{{ route('listcat') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Roles">List Categories</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="{{ route('category') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Permission">Create Category</span></a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">Trends</a>
-                <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="{{ route('trendlist') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Roles">List Trends</span></a>
-                    </li>
-                    <li><a class="d-flex align-items-center" href="{{ route('trending') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Permission">Create Trend</span></a>
+                    <li class="{{ request()->routeIs('banner') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ route('banner') }}"
+                            style="{{ request()->routeIs('banner') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}">
+                            <i data-feather="circle"
+                                style="{{ request()->routeIs('banner') ? 'color: #fff !important;' : '' }}"></i>
+                            <span class="menu-item text-truncate" data-i18n="Create Banner">Create Banner</span>
+                        </a>
                     </li>
                 </ul>
             </li>
 
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">Slides</a>
+            <li class="nav-item {{ request()->routeIs('listcat', 'category') ? 'sidebar-group-active open' : '' }}">
+
+                <a class="d-flex align-items-center" href="#"
+                    style="{{ request()->routeIs('listcat', 'category') ? 'background-color: #e4e4e4 !important; color: #000 !important; border-radius: 4px;' : '' }}">
+                    <i data-feather="grid"></i>
+                    <span class="menu-title text-truncate" data-i18n="Categories">Categories</span>
+                </a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="{{ route('slidelist') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Roles">List Slides</span></a>
+                    <li class="{{ request()->routeIs('listcat') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ route('listcat') }}"
+                            style="{{ request()->routeIs('listcat') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}">
+                            <i data-feather="circle"
+                                style="{{ request()->routeIs('listcat') ? 'color: #fff !important;' : '' }}"></i>
+                            <span class="menu-item text-truncate" data-i18n="Roles">List Categories</span>
+                        </a>
                     </li>
-                    <li><a class="d-flex align-items-center" href="{{ route('slidebanner') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Permission">Create Slide</span></a>
+                    <li class="{{ request()->routeIs('category') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ route('category') }}"
+                            style="{{ request()->routeIs('category') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}">
+                            <i data-feather="circle"
+                                style="{{ request()->routeIs('category') ? 'color: #fff !important;' : '' }}"></i>
+                            <span class="menu-item text-truncate" data-i18n="Permission">Create Category</span>
+                        </a>
                     </li>
                 </ul>
             </li>
 
-            <li class=" nav-item"><a class="d-flex align-items-center" href="#">Videos</a>
+
+
+            <li class="nav-item {{ request()->routeIs('trendlist', 'trending') ? 'sidebar-group-active open' : '' }}">
+                <a class="d-flex align-items-center" href="#"
+                    style="{{ request()->routeIs('trendlist', 'trending') ? 'background-color: #e4e4e4 !important; color: #000 !important; border-radius: 4px;' : '' }}">
+                    <i data-feather="trending-up"></i>
+                    <span class="menu-title text-truncate" data-i18n="Trends">Trends</span>
+                </a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="{{ route('vdlist') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Roles">List Videos</span></a>
+                    <li class="{{ request()->routeIs('trendlist') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ route('trendlist') }}"
+                            style="{{ request()->routeIs('trendlist') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}">
+                            <i data-feather="circle"
+                                style="{{ request()->routeIs('trendlist') ? 'color: #fff !important;' : '' }}"></i>
+                            <span class="menu-item text-truncate" data-i18n="Roles">List Trends</span>
+                        </a>
                     </li>
-                      <li><a class="d-flex align-items-center" href="{{ route('vdcreate') }}"><i
-                                data-feather="circle"></i><span class="menu-item text-truncate"
-                                data-i18n="Roles">Create Video</span></a>
+                    <li class="{{ request()->routeIs('trending') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ route('trending') }}"
+                            style="{{ request()->routeIs('trending') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}">
+                            <i data-feather="circle"
+                                style="{{ request()->routeIs('trending') ? 'color: #fff !important;' : '' }}"></i>
+                            <span class="menu-item text-truncate" data-i18n="Permission">Create Trend</span>
+                        </a>
                     </li>
                 </ul>
             </li>
+
+
+
+            <li class=" nav-item {{ request()->routeIs('slidelist', 'Slides') ? 'sidebar-group-active open' : '' }}">
+                <a class="d-flex align-items-center" href="#"
+                    style="{{ request()->routeIs('slidelist', 'Slides') ? 'background-color: #e4e4e4 !important; color: #000 !important; border-radius: 4px;' : '' }}">
+                    <i data-feather="sliders"></i>
+                    <span class="menu-title text-truncate" data-i18n="Trends">Slides</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="{{ request()->routeIs('slidelist') ? 'active' : '' }}"><a
+                            class="d-flex align-items-center" href="{{ route('slidelist') }}"
+                            style="{{ request()->routeIs('slidelist') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}"><i
+                                data-feather="circle"
+                                style="{{ request()->routeIs('slidelist') ? 'color: #fff !important;' : '' }}"></i><span
+                                class="menu-item text-truncate" data-i18n="Roles">List Slides</span></a>
+                    </li>
+                    <li class="{{ request()->routeIs('slidebanner') ? 'active' : '' }}"><a
+                            class="d-flex align-items-center" href="{{ route('slidebanner') }}"
+                            style="{{ request()->routeIs('slidebanner') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}"><i
+                                data-feather="circle"
+                                style="{{ request()->routeIs('slidebanner') ? 'color: #fff !important;' : '' }}"></i><span
+                                class="menu-item text-truncate" data-i18n="Permission">Create Slide</span></a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item {{ request()->routeIs('vdlist', 'vdcreate') ? 'sidebar-group-active open' : '' }}">
+                <a class="d-flex align-items-center" href="#"
+                    style="{{ request()->routeIs('vdlist', 'vdcreate') ? 'background-color: #e4e4e4 !important; color: #000 !important; border-radius: 4px;' : '' }}">
+                    <i data-feather="video"></i>
+                    <span class="menu-title text-truncate" data-i18n="Videos">Video</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="{{ request()->routeIs('vdlist') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ route('vdlist') }}"
+                            style="{{ request()->routeIs('vdlist') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}">
+                            <i data-feather="circle"
+                                style="{{ request()->routeIs('vdlist') ? 'color: #fff !important;' : '' }}"></i>
+                            <span class="menu-item text-truncate" data-i18n="List Videos">List Videos</span>
+                        </a>
+                    </li>
+                    <li class="{{ request()->routeIs('vdcreate') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" href="{{ route('vdcreate') }}"
+                            style="{{ request()->routeIs('vdcreate') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}">
+                            <i data-feather="circle"
+                                style="{{ request()->routeIs('vdcreate') ? 'color: #fff !important;' : '' }}"></i>
+                            <span class="menu-item text-truncate" data-i18n="Create Video">Create Video</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
 
         </ul>
     </div>
