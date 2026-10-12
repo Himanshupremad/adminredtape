@@ -23,38 +23,40 @@
 
 <body>
     <div class="navheader">
-    <div class="container-fluid p-0  ">
-        <nav class="navbar sticky-top  head ">
-            <div class="container-fluid topic">
-                <a class="navbar-brand ms-5 ps-5" href="#">Store Locator  <span class="ms-4">Help</span></a>
-               
-            </div>
-        </nav>
+        <div class="container-fluid p-0  ">
+            <nav class="navbar sticky-top  head ">
+                <div class="container-fluid topic">
+                    <a class="navbar-brand ms-5 ps-5" href="#">Store Locator <span class="ms-4">Help</span></a>
 
-          <nav class="navbar navbar-light bg-light navhdr">
-            <div class="container">
-                <div class="mx-auto me-5 logimg">
-                    <img src="{{ asset('frontend/image/img1.webp') }}" alt="">
                 </div>
-                <form class="d-flex justify-content-between forms">
-                    <div class="input-group me-4">
-                        <input type="text" class="form-control" placeholder="What are you looking for?"
-                            aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <span class="input-group-text" id="basic-addon2" style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;"><i class="bi bi-search"></i></span>
+            </nav>
+
+            <nav class="navbar navbar-light bg-light navhdr">
+                <div class="container">
+                    <div class="mx-auto me-5 logimg">
+                        <img src="{{ asset('frontend/image/img1.webp') }}" alt="">
                     </div>
-                    <div class="me-5 fs-4">
-                        <i class="bi bi-person"></i>
-                    </div>
-                    <div class="me-5 fs-4">
-                        <i class="bi bi-basket3"></i>
-                    </div>
-                    <div class="me-5 fs-4">
-                        <i class="bi bi-heart"></i>
-                    </div>
-                </form>
-            </div>
-        </nav>
-      </div>
+                    <form class="d-flex justify-content-between forms">
+                        <div class="input-group me-4">
+                            <input type="text" class="form-control" placeholder="What are you looking for?"
+                                aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <span class="input-group-text" id="basic-addon2"
+                                style="border-top-right-radius: 20px; border-bottom-right-radius: 20px;"><i
+                                    class="bi bi-search"></i></span>
+                        </div>
+                        <div class="me-5 fs-4">
+                            <i class="bi bi-person"></i>
+                        </div>
+                        <div class="me-5 fs-4">
+                            <i class="bi bi-basket3"></i>
+                        </div>
+                        <div class="me-5 fs-4">
+                            <i class="bi bi-heart"></i>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
 
         <div class="main " style=" display: flex; justify-content: center; ">
             <div class="btn-group" style="width: 0 auto; width: 100%; ">
@@ -300,7 +302,7 @@
 
                             <div class="card-body card-b my-0">
                                 <a href="">
-                                    <h6>{{ $trend->content }}</h6>
+                                    <h6>{{ $trend->description }}</h6>
                                 </a>
                                 <div class="d-flex" style="gap: 13px; font-size: 16px;">
                                     <p>Save 85%</p>
@@ -309,8 +311,7 @@
                                     </span>
 
                                 </div>
-                                <span class="text-decoration-line-through"
-                                    style="background-color: rgb(217, 217, 217);">₹ 7,899.00</span>
+                                <strike style="width: 80px; background-color: rgb(217, 217, 217);">₹ 7,899.00</strike>
                             </div>
 
                         </div>
@@ -369,7 +370,6 @@
             <div class="col-4">
                 <h5><span><i class="bi bi-chat-square-dots"></i></span> Customer Service</h5>
                 <p>09:30 A.M. to 05:00 P.M</p>
-
 
             </div>
 
@@ -447,7 +447,6 @@
     </div>
 
 
-    <!-- JavaScript: Isme aapko koi change nahi karna hai, direct paste karein -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const animationSpeed = 600; // Medium speed

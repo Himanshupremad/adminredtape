@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('image');
             $table->string('image1');
-            $table->string('content');
+            $table->text('description');
+            $table->text('color');
+            $table->text('vendor');
+            $table->text('sku');
+            $table->text('discount');
             $table->string('price');
             $table->timestamps();
         });

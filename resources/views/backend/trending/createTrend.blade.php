@@ -4,95 +4,68 @@
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl p-0">
-            <div class="content-header row">
-            </div>
             <div class="content-body">
-
                 <section id="basic-vertical-layouts">
                     <div class="row">
-
-                        <div class=" col-6">
+                        <div class="col-md-8 col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Create Trending</h4>
+                                    <h4 class="card-title">Create Trending Product</h4>
                                 </div>
+                                
                                 @session('success')
-                                    <div class="alert alert-success">
-                                        {{ $value }}
-                                    </div>
+                                    <div class="alert alert-success">{{ $value }}</div>
+                                @endsession
+                                @session('error')
+                                    <div class="alert alert-danger">{{ $value }}</div>
                                 @endsession
 
-                                @session('error')
-                                    <div class="text-danger">
-                                        {{ $value }}
-                                    </div>
-                                @endsession
                                 <div class="card-body">
-                                    <form action='{{ route('trending.store') }}' method="POST" enctype="multipart/form-data"
-                                        class="form form-vertical">
+                                    <form action="{{ route('trending.store') }}" method="POST" enctype="multipart/form-data" class="form form-vertical">
                                         @csrf
                                         <div class="row">
-                                            <div class="col-12">
-                                                <div class="mb-3">
-                                                    <label for="formFile" class="form-label">image</label>
-                                                    <input class="form-control" type="file" id="formFile"
-                                                        name="image">
-                                                    <span class="text-danger">
-                                                        @error('image')
-                                                            {{ $message }}
-                                                        @enderror
-
-                                                    </span>
-                                                </div>
+                                            <div class="col-md-6 col-12 mb-2">
+                                                <label class="form-label">Image 1</label>
+                                                <input class="form-control" type="file" name="image">
+                                                @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
-                                              <div class="col-12">
-                                                <div class="mb-3">
-                                                    <label for="formFile" class="form-label">image1</label>
-                                                    <input class="form-control" type="file" id="formFile"
-                                                        name="image1">
-                                                    <span class="text-danger">
-                                                        @error('image1')
-                                                            {{ $message }}
-                                                        @enderror
-
-                                                    </span>
-                                                </div>
+                                            <div class="col-md-6 col-12 mb-2">
+                                                <label class="form-label">Image 2 (image1)</label>
+                                                <input class="form-control" type="file" name="image1">
+                                                @error('image1') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
-                                           
-                                            <div class="col-12">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="first-name-icon">Content</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span class="input-group-text"><i data-feather="user"></i></span>
-                                                        <input type="text" id="first-name-icon" class="form-control"
-                                                            name="content" placeholder="content" />
-                                                        <span class="text-danger">
-                                                            @error('content')
-                                                                {{ $message }}
-                                                            @enderror
-
-                                                        </span>
-                                                    </div>
-                                                </div>
+                                            <div class="col-md-6 col-12 mb-2">
+                                                <label class="form-label">Price</label>
+                                                <input type="text" class="form-control" name="price" placeholder="Price" value="{{ old('price') }}" />
+                                                @error('price') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
-                                            
-                                            <div class="col-12">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="first-name-icon">Price</label>
-                                                    <div class="input-group input-group-merge">
-                                                        <span class="input-group-text"><i data-feather="user"></i></span>
-                                                        <input type="text" id="first-name-icon" class="form-control"
-                                                            name="price" placeholder="price" />
-                                                        <span class="text-danger">
-                                                            @error('price')
-                                                                {{ $message }}
-                                                            @enderror
-
-                                                        </span>
-                                                    </div>
+                                            <div class="col-md-6 col-12 mb-2">
+                                                <label class="form-label">Discount</label>
+                                                <input type="text" class="form-control" name="discount" placeholder="Discount" value="{{ old('discount') }}" />
+                                                @error('discount') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                            <div class="col-md-6 col-12 mb-2">
+                                                <label class="form-label">Color</label>
+                                                <input type="text" class="form-control" name="color" placeholder="Color" value="{{ old('color') }}" />
+                                                @error('color') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                            <div class="col-md-6 col-12 mb-2">
+                                                <label class="form-label">Vendor</label>
+                                                <input type="text" class="form-control" name="vendor" placeholder="Vendor" value="{{ old('vendor') }}" />
+                                                @error('vendor') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                            <div class="col-md-6 col-12 mb-2">
+                                                <label class="form-label">SKU</label>
+                                                <input type="text" class="form-control" name="sku" placeholder="SKU" value="{{ old('sku') }}" />
+                                                @error('sku') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+                                            <div class="col-12 mb-2">
+                                                <div class="form-floating">
+                                                    <textarea class="form-control" name="description" placeholder="Leave description" id="floatingTextarea2" style="height: 100px">{{ old('description') }}</textarea>
+                                                    <label for="floatingTextarea2">Description</label>
                                                 </div>
-                                            </div> 
-
+                                                @error('description') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
                                             <div class="col-12">
                                                 <button type="submit" class="btn btn-primary me-1">Submit</button>
                                             </div>
@@ -103,9 +76,7 @@
                         </div>
                     </div>
                 </section>
-
             </div>
         </div>
     </div>
-
 @endsection

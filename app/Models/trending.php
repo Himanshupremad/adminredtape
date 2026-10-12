@@ -10,9 +10,13 @@ class trending extends Model
          protected $fillable = [
         'image',
         'image1',
-        'content',
+        'description',
+        'color',
+        'vendor',
+        'sku',
+        'discount',
         'price',
-        
-       
+      
+    
     ];
 }

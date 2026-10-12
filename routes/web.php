@@ -64,3 +64,14 @@ Route::get('slidebannerlist', [slideController::class, 'slidelist'])->name('slid
 Route::get('video', [videoController::class, 'videos'])->name('vdcreate');
 Route::post('video', [videoController::class, 'videopage'])->name('video.store');
 Route::get('videolist', [videoController::class, 'videolist'])->name('vdlist');
+
+
+// Route::get('product/{id}/edit', [trendController::class, 'edit'])->name('trending.edit');
+
+// Trending Module CRUD Routes
+Route::get('trending/create', [trendController::class, 'trendings'])->name('trending.create');
+Route::post('trending/store', [trendController::class, 'trendingpage'])->name('trending.store');
+Route::get('trending/list', [trendController::class, 'trendlist'])->name('trendlist');
+Route::get('product/{id}/edit', [trendController::class, 'edit'])->name('trending.edit');
+Route::put('product/{id}', [trendController::class, 'update'])->name('trending.update');
+Route::delete('product/{id}', [trendController::class, 'destroy'])->name('trending.destroy');
