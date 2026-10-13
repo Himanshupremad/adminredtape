@@ -26,6 +26,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Image</th>
+                                                <th>Action</th>
 
                                             </tr>
                                         </thead>
@@ -36,6 +37,15 @@
                                                     <td>
                                                         <img src="{{ asset($banner->image) }}" alt="Banner Image"
                                                             width="50px">
+                                                    </td>
+                                                    <td>
+                                                        <div class="d-flex gap-1">
+                                                            <a href="{{ route('banner.edit', $banner->id) }}"
+                                                                class="btn btn-sm btn-warning">Edit</a>
+                                                            <!-- Delete Button Added Here -->
+                                                            <button type="button" class="btn btn-sm btn-danger delete-btn"
+                                                                data-id="{{ $banner->id }}">Delete</button>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -50,4 +60,42 @@
             </div>
         </div>
     </div>
+
+
+    <!-- AJAX Core Handling Script -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script> <!-- jQuery URL ko correct kiya hai -->
+    <script>
+        $(document).ready(function() {
+            $('.delete-btn').on('click', function() {
+                var bannerId = $(this).data('id');
+                var row = $(this).closest('tr');
+
+                if (confirm("Kya aap sach me is product ko delete karna chahte hain?")) {
+                    $.ajax({
+                        url: "/banner/" +
+                        bannerId, // Agar aapka route /trending/ hai toh ise badal kar "/trending/" + productId kar lein
+                        type: 'DELETE',
+                        data: {
+                            "_token": $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                row.fadeOut(400, function() {
+                                    $(this).remove();
+                                });
+                                alert(response.message);
+                            } else {
+                                alert(response.message || 'Kuch gadbad hui.');
+                            }
+                        },
+                        error: function() {
+                            alert('Kuch gadbad hui, kripya dubara try karein.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

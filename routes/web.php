@@ -50,10 +50,6 @@ route::post('category', [categoryController::class, 'categorypage'])->name('cate
 route::get('categorylist', [categoryController::class, 'catlist'])->name('listcat');
 
 
-route::get('trendings', [trendController::class, 'trendings'])->name('trending');
-route::post('trending', [trendController::class, 'trendingpage'])->name('trending.store');
-route::get('trendinglist', [trendController::class, 'trendlist'])->name('trendlist');
-
 Route::get('slidebanner', [slideController::class, 'slidebanner'])->name('slidebanner');
 Route::post('slidebanner', [slideController::class, 'slidepage'])->name('slide.store');
 Route::get('slidebannerlist', [slideController::class, 'slidelist'])->name('slidelist');
@@ -72,6 +68,12 @@ Route::get('videolist', [videoController::class, 'videolist'])->name('vdlist');
 Route::get('trending/create', [trendController::class, 'trendings'])->name('trending.create');
 Route::post('trending/store', [trendController::class, 'trendingpage'])->name('trending.store');
 Route::get('trending/list', [trendController::class, 'trendlist'])->name('trendlist');
+
 Route::get('product/{id}/edit', [trendController::class, 'edit'])->name('trending.edit');
-Route::put('product/{id}', [trendController::class, 'update'])->name('trending.update');
+Route::put('product/{id}', [trendController::class, 'update'])->name('trendings.update');
 Route::delete('product/{id}', [trendController::class, 'destroy'])->name('trending.destroy');
+
+
+Route::get('banner/{id}/edit', [bannerController::class, 'edit'])->name('banner.edit');
+Route::post('banner/{id}', [bannerController::class, 'update'])->name('banners.update');
+Route::delete('banner/{id}', [bannerController::class, 'destroy'])->name('banner.destroy');

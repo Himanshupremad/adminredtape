@@ -132,7 +132,7 @@
                         </a>
                     </li>
                     <li class="{{ request()->routeIs('trending') ? 'active' : '' }}">
-                        <a class="d-flex align-items-center" href="{{ route('trending') }}"
+                        <a class="d-flex align-items-center" href="{{ route('trendlist') }}"
                             style="{{ request()->routeIs('trending') ? 'background-color: #6f42c1 !important; color: #fff !important; border-radius: 4px;' : '' }}">
                             <i data-feather="circle"
                                 style="{{ request()->routeIs('trending') ? 'color: #fff !important;' : '' }}"></i>

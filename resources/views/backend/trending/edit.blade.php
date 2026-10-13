@@ -21,7 +21,7 @@
                                 @endsession
 
                                 <div class="card-body">
-                                    <form action="{{ route('trending.update', $product->id) }}" method="POST"
+                                    <form action="{{ route('trendings.update', $product->id) }}" method="POST"
                                         enctype="multipart/form-data" class="form form-vertical">
                                         @csrf
                                         @method('PUT')
