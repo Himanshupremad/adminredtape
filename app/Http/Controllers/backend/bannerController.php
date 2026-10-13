@@ -60,7 +60,7 @@ class bannerController extends Controller
 
         $banner = banner::findOrFail($id);
 
-        // Update First Image if uploaded
+       
         if ($request->hasFile('image')) {
             if ($banner->image && file_exists(public_path($banner->image))) {
                 @unlink(public_path($banner->image));
@@ -93,9 +93,7 @@ class bannerController extends Controller
         if ($banner->image && file_exists(public_path($banner->image))) {
             @unlink(public_path($banner->image));
         }
-        if ($banner->image1 && file_exists(public_path($banner->image1))) {
-            @unlink(public_path($banner->image1));
-        }
+       
 
 
         $banner->delete();

@@ -40,20 +40,39 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 
+
+
+// Trending Module CRUD Routes
+Route::get('trending/create', [trendController::class, 'trendings'])->name('trending.create');
+Route::post('trending/store', [trendController::class, 'trendingpage'])->name('trending.store');
+Route::get('trending/list', [trendController::class, 'trendlist'])->name('trendlist');
+Route::get('product/{id}/edit', [trendController::class, 'edit'])->name('trending.edit');
+Route::put('product/{id}', [trendController::class, 'update'])->name('trendings.update');
+Route::delete('product/{id}', [trendController::class, 'destroy'])->name('trending.destroy');
+
+
 Route::get('banner', [bannerController::class, 'banners'])->name('banner');
 Route::post('banner', [bannerController::class, 'bannerpage'])->name('banner.store');
 Route::get('bannerlist', [bannerController::class, 'listpage'])->name('listbanner');
-
+Route::get('banner/{id}/edit', [bannerController::class, 'edit'])->name('banner.edit');
+Route::post('banner/{id}', [bannerController::class, 'update'])->name('banners.update');
+Route::delete('banner/{id}', [bannerController::class, 'destroy'])->name('banner.destroy');
 
 route::get('category', [categoryController::class, 'categorys'])->name('category');
 route::post('category', [categoryController::class, 'categorypage'])->name('category.store');
 route::get('categorylist', [categoryController::class, 'catlist'])->name('listcat');
+Route::get('category/{id}/edit', [categoryController::class, 'edit'])->name('category.edit');
+Route::post('category/{id}', [categoryController::class, 'update'])->name('category.update');
+Route::delete('category/{id}', [categoryController::class, 'destroy'])->name('category.destroy');
 
 
 Route::get('slidebanner', [slideController::class, 'slidebanner'])->name('slidebanner');
 Route::post('slidebanner', [slideController::class, 'slidepage'])->name('slide.store');
 Route::get('slidebannerlist', [slideController::class, 'slidelist'])->name('slidelist');
 
+Route::get('slider/{id}/edit', [slideController::class, 'edit'])->name('slider.edit');
+Route::post('slider/{id}', [slideController::class, 'update'])->name('slider.update');
+Route::delete('slider/{id}', [slideController::class, 'destroy'])->name('slider.destroy');
 
 
 
@@ -61,19 +80,6 @@ Route::get('video', [videoController::class, 'videos'])->name('vdcreate');
 Route::post('video', [videoController::class, 'videopage'])->name('video.store');
 Route::get('videolist', [videoController::class, 'videolist'])->name('vdlist');
 
-
-// Route::get('product/{id}/edit', [trendController::class, 'edit'])->name('trending.edit');
-
-// Trending Module CRUD Routes
-Route::get('trending/create', [trendController::class, 'trendings'])->name('trending.create');
-Route::post('trending/store', [trendController::class, 'trendingpage'])->name('trending.store');
-Route::get('trending/list', [trendController::class, 'trendlist'])->name('trendlist');
-
-Route::get('product/{id}/edit', [trendController::class, 'edit'])->name('trending.edit');
-Route::put('product/{id}', [trendController::class, 'update'])->name('trendings.update');
-Route::delete('product/{id}', [trendController::class, 'destroy'])->name('trending.destroy');
-
-
-Route::get('banner/{id}/edit', [bannerController::class, 'edit'])->name('banner.edit');
-Route::post('banner/{id}', [bannerController::class, 'update'])->name('banners.update');
-Route::delete('banner/{id}', [bannerController::class, 'destroy'])->name('banner.destroy');
+Route::get('video/{id}/edit', [videoController::class, 'edit'])->name('video.edit');
+Route::post('video/{id}', [videoController::class, 'update'])->name('video.update');
+Route::delete('video/{id}', [videoController::class, 'destroy'])->name('video.destroy');

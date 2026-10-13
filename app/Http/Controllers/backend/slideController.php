@@ -18,25 +18,11 @@ class slideController extends Controller
 
        $data = $request->validate([
             'image' => 'required',
-            // 'image1' => 'required',
-            // 'image2' => 'required',
-            // 'image3' => 'required',
+         
         ]);
         $imgName = str::random(5). '.' . $request->image->extension();
         $request->image->move(public_path('slideimg'), $imgName);
         $data['image'] = 'slideimg/' . $imgName;
-
-        //   $imgName1 = str::random(5). '.' . $request->image1->extension();
-        // $request->image1->move(public_path('slideimg'), $imgName1);
-        // $data['image1'] = 'slideimg/' . $imgName1;
-
-        //    $imgName2 = str::random(5). '.' . $request->image2->extension();
-        // $request->image2->move(public_path('slideimg'), $imgName2);
-        // $data['image2'] = 'slideimg/' . $imgName2;
-
-        //    $imgName3 = str::random(5). '.' . $request->image3->extension();
-        // $request->image3->move(public_path('slideimg'), $imgName3);
-        // $data['image3'] = 'slideimg/' . $imgName3;
 
         $result = slidebanner::create($data);
         if ($result) {
@@ -49,5 +35,67 @@ class slideController extends Controller
     function slidelist(Request $request){
         $sliders = slidebanner::all();
         return view('backend.slide.listSlide', compact('sliders'));
+    }
+
+
+
+    
+    //yaha se edit or delete ka work hai
+
+    // 4. Edit View Page
+    function edit($id)
+    {
+        $slider = slidebanner::findOrFail($id);
+        return view('backend.slide.editSlide', compact('slider'));
+    }
+
+    // 5. Update Form Data
+    function update(Request $request, $id)
+    {
+        $data = $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+
+        ]);
+
+        $slider = slidebanner::findOrFail($id);
+
+       
+        if ($request->hasFile('image')) {
+            if ($slider->image && file_exists(public_path($slider->image))) {
+                @unlink(public_path($slider->image));
+            }
+            $imgName = Str::random(7) . '.' . $request->image->extension();
+            $request->image->move(public_path('slideimg'), $imgName);
+            $data['image'] = 'slideimg/' . $imgName;
+        } else {
+            $data['image'] = $slider->image;
+        }
+        $result = $slider->update($data);
+
+        if ($result) {
+            return to_route('slidelist')->with('success', 'Product updated successfully!');
+        } else {
+            return back()->with('error', 'Failed to update product.');
+        }
+    }
+
+
+      // 6. Delete Data (AJAX Compatibility)
+     function destroy($id)
+    {
+        $slider = slidebanner::find($id);
+
+        if (!$slider) {
+            return response()->json(['success' => false, 'message' => 'Product not found!'], 404);
+        }
+
+        if ($slider->image && file_exists(public_path($slider->image))) {
+            @unlink(public_path($slider->image));
+        }
+        
+
+
+        $slider->delete();
+        return response()->json(['success' => true, 'message' => 'Product deleted successfully!']);
     }
 }
