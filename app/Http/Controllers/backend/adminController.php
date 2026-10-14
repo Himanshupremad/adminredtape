@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\banner;
+use App\Models\category;
+use App\Models\slidebanner;
+use App\Models\trending;
 use App\Models\User;
+use App\Models\video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +17,13 @@ class adminController extends Controller
     //
 
     function adminpage(){
-        return view('backend.adminpanel');
+        $banners = banner::count();
+        $categorys = category::count();
+        $trends = trending::count();
+        $slides = slidebanner::count();
+        $videos = video::count();
+        // return $banners;
+        return view('backend.adminpanel',compact('banners', 'categorys', 'trends', 'slides', 'videos'));
     }
 
        public function logout(Request $request)

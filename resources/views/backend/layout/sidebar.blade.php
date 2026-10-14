@@ -191,10 +191,17 @@
                             <span class="menu-item text-truncate" data-i18n="Create Video">Create Video</span>
                         </a>
                     </li>
+
                 </ul>
             </li>
 
-
+            <li class="nav-item {{ request()->routeIs('login') ? 'active' : '' }}">
+                <a class="d-flex align-items-center" href="{{ route('login') }}">
+                    <i data-feather="log-out"></i>
+                    <span class="menu-title text-truncate" data-i18n="Dashboards">Logout</span>
+                    <span class="badge badge-light-warning rounded-pill ms-auto me-1"></span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
